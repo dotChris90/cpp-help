@@ -2,10 +2,12 @@
 # app.py
 
 from cleo import Application
-from cpphelper.DependencyCmd import DependencyCommand
+from DependencyCmd import DependencyCommand
+from ConBuildCmd import ConanBuildCommand
 
 application = Application()
 application.add(DependencyCommand())
+application.add(ConanBuildCommand())
 
 def run():
     application.run()
