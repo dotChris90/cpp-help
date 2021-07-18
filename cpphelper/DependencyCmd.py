@@ -1,5 +1,5 @@
 from cleo import Command
-from ConanDeploy import Deploy
+from cpphelper.ConanDeploy import Deploy
 
 class DependencyCommand(Command):
     """

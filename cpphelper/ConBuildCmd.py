@@ -1,3 +1,4 @@
+from posixpath import dirname
 from cleo import Command
 import os 
 
@@ -16,7 +17,11 @@ class ConanBuildCommand(Command):
             conanfile_pos = os.getcwd()
         else:
             pass 
-        conan_dir = conanfile_pos if os.path.isdir(conanfile_pos) else os.path.pardir(conanfile_pos)
+
+        if os.path.isdir(conanfile_pos):
+            conan_dir = conanfile_pos
+        else:
+            conan_dir = os.path.dirname(conanfile_pos)
         pr = self.option('profile')
         # preapre workspace
         os.chdir(conan_dir)
